@@ -1,0 +1,107 @@
+body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      transition: background-color 0.3s, color 0.3s;
+      background-color: #fff; 
+      color: #333; 
+    }
+
+    body.dark-mode {
+      background-color: #15202b;
+      color: #fff;
+    }
+    
+    .dark-mode .description {
+      color:#fff;
+    }
+
+    .profile-container {
+      margin-top: 20px;
+    }
+
+    .profile-image {
+      border-radius: 50%;
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+    }
+
+    .username {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size:20px;
+    }
+
+    .description {
+      margin-top: 5px;
+      color: #666;
+    }
+
+    .links-container {
+      margin-top: 20px;
+    }
+
+    .link-box {
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      transition: background-color 0.3s; 
+      cursor: pointer; 
+    }
+
+    .link-box a {
+      text-decoration: none;
+      color: inherit;
+      display: block; 
+    }
+
+    @media (min-width: 768px) {
+      .links-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .link-box {
+        flex: 0 0 calc(70% - 20px);
+        max-width: calc(70% - 20px);
+      }
+    }
+
+    .link-box:hover,
+    .link-box:active {
+      background-color: #f0f0f0;
+    }
+
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      font-size: 24px;
+    }
+
+.contact-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #1E90FF;
+  border-radius: 50%;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.contact-box a {
+  text-decoration: none;
+  color: white;
+}
+
+.contact-box i {
+  font-size: 24px;
+}
