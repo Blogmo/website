@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown Timer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; 
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  margin:10px;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; 
+}
+
+.countdown-box {
+  text-align: center;
+  margin: 10px;
+  padding: 40px; 
+  border-radius: 10px;
+  flex: 1; 
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+}
+
+.countdown-value {
+  font-size: 2rem; 
+  color: #333333; 
+}
+
+.countdown-label {
+  font-size: 1rem; 
+  color: #666666; 
+}
+
+@media screen and (min-width: 360px) {
+  .countdown-box {
+    flex: 0 0 calc(25% - 20px); 
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .countdown-box {
+    flex: 0 0 calc(25% - 20px); 
+  }
+}
+
+</style>
+<body>
+  <div class="title">Kung Fu Panda 4 - Sub Indo</div>
+  <div class="countdown" id="countdown">
+    <div class="countdown-box" id="days-box">
+      <div class="countdown-value" id="days">00</div>
+      <div class="countdown-label">Days</div>
+    </div>
+    <div class="countdown-box" id="hours-box">
+      <div class="countdown-value" id="hours">00</div>
+      <div class="countdown-label">Hours</div>
+    </div>
+    <div class="countdown-box" id="minutes-box">
+      <div class="countdown-value" id="minutes">00</div>
+      <div class="countdown-label">Minutes</div>
+    </div>
+    <div class="countdown-box" id="seconds-box">
+      <div class="countdown-value" id="seconds">00</div>
+      <div class="countdown-label">Seconds</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+<script>
+    const targetDate = new Date('March 18, 2024 12:00:00').getTime();
+
+const timerInterval = setInterval(function() {
+  const currentDate = new Date().getTime();
+  const remainingTime = targetDate - currentDate;
+  const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+  
+  document.getElementById('days').innerText = formatTime(days);
+  document.getElementById('hours').innerText = formatTime(hours);
+  document.getElementById('minutes').innerText = formatTime(minutes);
+  document.getElementById('seconds').innerText = formatTime(seconds);
+  
+  if (remainingTime < 0) {
+    clearInterval(timerInterval); 
+    document.getElementById('countdown').innerHTML = "Countdown Expired!";
+    window.location.href = "https://example.com";
+  }
+}, 1000); 
+
+
+function formatTime(time) {
+  return time < 10 ? "0" + time : time;
+}
+</script>
+</html>
